@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from django.contrib import admin
 from .models import Contato
 
@@ -14,3 +15,8 @@ class ContatoAdmin(admin.ModelAdmin):
         'titulo',
         'contato'
     ]
+=======
+from django.contrib import admin
+
+# Register your models here.
+>>>>>>> 4485df0c55ab9710514919aa953db86e5a9d4ee4
