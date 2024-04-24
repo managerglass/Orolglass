@@ -46,8 +46,8 @@ INSTALLED_APPS = [
     'backend.imagem',
     'backend.destaque',
     # 'backend.evento',
-    # 'backend.projeto',
-    # 'backend.sobre',
+    'backend.projeto',
+    'backend.sobre',
 ]
 
 MIDDLEWARE = [

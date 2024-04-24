@@ -1,3 +1,13 @@
-from django.shortcuts import render
+from rest_framework import generics
+from .models import Sobre
+from .serializers import SobreSerializer
 
-# Create your views here.
+
+class SobreListCreateAPIView(generics.ListCreateAPIView):
+    queryset = Sobre.objects.all()
+    serializer_class = SobreSerializer
+
+
+class SobreRetrieveUpdateAPIView(generics.RetrieveUpdateAPIView):
+    queryset = Sobre.objects.all()
+    serializer_class = SobreSerializer
