@@ -39,5 +39,13 @@ urlpatterns = [
     path(
         'api/v1/',
         include('backend.destaque.urls')
+    ),
+    path(
+        'api/v1/',
+        include('backend.projeto.urls')
+    ),
+    path(
+        'api/v1/',
+        include('backend.sobre.urls')
     )
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
