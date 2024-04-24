@@ -4,7 +4,11 @@ from backend.core.models import HerancaPadrao
 
 TIPO_CATEGORIA = [
     ('IMAGEM', 'Imagem'),
-    ('DESTAQUE', 'Destaque')
+    ('DESTAQUE', 'Destaque'),
+    ('PROJETO', 'Projeto'),
+    ('EVENTO', 'Evento'),
+    ('CONTATO', 'Contato'),
+    ('SOBRE', 'Sobre'),
 ]
 
 
