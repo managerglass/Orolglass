@@ -159,6 +159,10 @@ module.exports = {
       fuchsia: colors.fuchsia,
       pink: colors.pink,
       rose: colors.rose,
+      cor_fundo: '#FFFFFF',
+      cor_texto: '#777777',
+      azul_logo: '#001C72',
+      laranja_logo: '#FF3C00'
     }),
     columns: {
       auto: 'auto',
