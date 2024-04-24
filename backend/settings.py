@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'backend.contato',
     'backend.imagem',
     'backend.destaque',
-    # 'backend.evento',
+    'backend.evento',
     'backend.projeto',
     'backend.sobre',
 ]
