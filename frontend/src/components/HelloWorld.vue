@@ -5,9 +5,6 @@
 <script>
 export default {
   name: 'HelloWorld',
-  props: {
-    msg: String
-  },
 
   data() {
     return {
@@ -16,5 +13,6 @@ export default {
   }
 }
 </script>
+<style lang="scss">
 
 </style>
