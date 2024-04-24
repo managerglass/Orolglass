@@ -29,5 +29,13 @@ urlpatterns = [
     path(
         'api/v1/',
         include('backend.contato.urls')
+    ),
+    path(
+        'api/v1/',
+        include('backend.imagem.urls')
+    ),
+    path(
+        'api/v1/',
+        include('backend.destaque.urls')
     )
 ]
