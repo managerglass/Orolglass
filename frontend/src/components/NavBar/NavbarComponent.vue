@@ -1,10 +1,3 @@
-
-import { useLink } from 'vue-router';
-
-import { useLink } from 'vue-router';
-
-import { useLink } from 'vue-router';
-
 <template>
     <div class="header">
         <div class="frame1">
