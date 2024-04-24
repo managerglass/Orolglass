@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import uuid
 from django.db import models
 
@@ -29,8 +28,3 @@ class HerancaPadrao(Ativo, TimeStamped, Uuid):
 
     class Meta:
         abstract = True
-=======
-from django.db import models
-
-# Create your models here.
->>>>>>> 4485df0c55ab9710514919aa953db86e5a9d4ee4
