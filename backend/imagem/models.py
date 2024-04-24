@@ -19,3 +19,13 @@ class Imagem(HerancaPadrao):
         blank=False,
         null=False
     ) 
+
+
+    class Meta:
+        ordering = ('titulo', )
+        verbose_name = 'Imagem'
+        verbose_name_plural = 'Imagens'
+
+    def __str__(self):
+        return f'{self.titulo} - {self.arquivo} - {self.tipo.nome}'
+    

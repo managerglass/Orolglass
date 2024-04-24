@@ -7,11 +7,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
     initial = True
 
-    dependencies = []
+    dependencies = [
+        ("imagem", "0001_initial"),
+    ]
 
     operations = [
         migrations.CreateModel(
-            name="Categoria",
+            name="Sobre",
             fields=[
                 (
                     "id",
@@ -25,23 +27,17 @@ class Migration(migrations.Migration):
                 ("criado_em", models.DateTimeField(auto_now_add=True)),
                 ("modificado_em", models.DateTimeField(auto_now_add=True)),
                 ("ativo", models.BooleanField(default=True)),
-                (
-                    "tipo",
-                    models.CharField(
-                        choices=[("IMAGEM", "Imagem"), ("DESTAQUE", "Destaque")],
-                        max_length=20,
-                        verbose_name="Tipo de Categoria",
-                    ),
-                ),
-                (
-                    "nome",
-                    models.CharField(max_length=50, verbose_name="Nome da Categoria"),
-                ),
+                ("sobre", models.TextField()),
+                ("valores", models.TextField()),
+                ("lema", models.TextField()),
+                ("missao", models.TextField()),
+                ("visao", models.TextField()),
+                ("crenca", models.TextField()),
+                ("imagens", models.ManyToManyField(to="imagem.imagem")),
             ],
             options={
-                "verbose_name": "Categoria",
-                "verbose_name_plural": "Categorias",
-                "ordering": ("nome",),
+                "verbose_name": "Sobre",
+                "verbose_name_plural": "Sobre",
             },
         ),
     ]
