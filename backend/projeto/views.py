@@ -7,7 +7,7 @@ class ProjetoFilterBackend(filters.BaseFilterBackend):
     def filter_queryset(self, request, queryset, view):
         titulo = request.query_params.get('titulo', None)
         tipo = request.query_params.get('tipo', None)
-        data = request.query_params.get('data', None)
+        
 
         filters = {}
 
@@ -15,8 +15,6 @@ class ProjetoFilterBackend(filters.BaseFilterBackend):
             filters['titulo'] = titulo
         if tipo:
             filters['descricao'] = tipo
-        if data:
-            filters['data'] = data
 
         return queryset.filter(**filters)
     

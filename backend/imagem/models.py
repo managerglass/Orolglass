@@ -3,7 +3,7 @@ from backend.core.models import HerancaPadrao
 from backend.categoria.models import Categoria
 
 
-class Imagem(HerancaPadrao, Categoria):
+class Imagem(HerancaPadrao):
     titulo = models.CharField(
         'Titulo',
         max_length=20,
@@ -27,5 +27,5 @@ class Imagem(HerancaPadrao, Categoria):
         verbose_name_plural = 'Imagens'
 
     def __str__(self):
-        return f'({self.titulo} - {self.arquivo} - {self.tipo})'
+        return f'{self.titulo} - {self.arquivo} - {self.tipo.nome}'
     
