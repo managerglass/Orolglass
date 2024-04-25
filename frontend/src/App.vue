@@ -21,6 +21,22 @@ export default {
     }
   },
 
+  created() {
+    this.getImagesall();
+  },
+
+  methods: {
+    async getImagesall() {
+      const response = await this.$store.dispatch('getImagesAll');
+      this.$store.state.imagensDestques = response.filter(image => image.tipo.tipo === "DESTAQUE");
+      this.$store.state.imagensSobre = response.filter(image => image.tipo.tipo === "SOBRE")
+      this.$store.state.imagensObras = response.filter(image => image.tipo.tipo === "PROJETO")
+      this.$store.state.imagensEventos = response.filter(image => image.tipo.tipo === "EVENTO")
+      console.log(response);
+      console.log(this.$store.state.imagensDestques);
+    }
+  }
+
 
 }
 </script>
