@@ -13,7 +13,7 @@ class ImagemFilterBackend(filters.BaseFilterBackend):
         if titulo:
             filters['titulo'] = titulo
         if tipo:
-            filters['tipo__nome__icontains'] = tipo
+            filters['tipo__tipo__icontains'] = tipo
 
         return queryset.filter(**filters)
     
@@ -21,7 +21,7 @@ class ImagemFilterBackend(filters.BaseFilterBackend):
 class ImagemListCreateAPIView(generics.ListCreateAPIView):
     queryset = Imagem.objects.all()
     serializer_class = ImagemSerializer
-    filter_backend = [ImagemFilterBackend]
+    filter_backends = [ImagemFilterBackend]
 
 
 class ImagemRetrieveUpdateAPIView(generics.RetrieveUpdateAPIView):
