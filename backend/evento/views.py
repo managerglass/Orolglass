@@ -18,7 +18,7 @@ class EventoFilterBackend(filters.BaseFilterBackend):
         if data:
             filters['data'] = data
         
-        return queryset(**filters)
+        return queryset.filter(**filters)
 
 
 class EventoListCreateAPIView(generics.ListCreateAPIView):

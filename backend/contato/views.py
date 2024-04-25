@@ -15,13 +15,13 @@ class ContatoFilterBackend(filters.BaseFilterBackend):
         if contato:
             filters['contato__icontains'] = contato
         
-        return queryset(**filters)
+        return queryset.filter(**filters)
 
 
 class ContatoListCreateAPIView(generics.ListCreateAPIView):
     queryset = Contato.objects.all()
     serializer_class = ContatoSerializer
-    filter_backend = [ContatoFilterBackend]
+    filter_backends = [ContatoFilterBackend]
 
 
 class ContatoRetrieveUpdateAPIView(generics.RetrieveUpdateAPIView):

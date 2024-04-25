@@ -21,7 +21,7 @@ class CategoriaFilterBackend(filters.BaseFilterBackend):
 class CategoriaListCreateAPIView(generics.ListCreateAPIView):
     queryset = Categoria.objects.all()
     serializer_class = CategoriaSerializer
-    filter_backend = [CategoriaFilterBackend]
+    filter_backends = [CategoriaFilterBackend]
 
 
 class CategoriaRetrieveUpdateAPIView(generics.RetrieveUpdateAPIView):

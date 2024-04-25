@@ -15,13 +15,13 @@ class AvaliacaoFilterBackend(filters.BaseFilterBackend):
         if rede_social:
             filters['rede_social'] = rede_social
         
-        return queryset(**filters)
+        return queryset.filter(**filters)
 
 
 class AvaliacaoListCreateAPIView(generics.ListCreateAPIView):
     queryset = Avaliacao.objects.all()
     serializer_class = AvaliacaoSerializer
-    filter_bakcend = [AvaliacaoFilterBackend]
+    filter_bakcends = [AvaliacaoFilterBackend]
 
 
 class AvaliacaoRetrieveUpdateAPIView(generics.RetrieveUpdateAPIView):

@@ -31,13 +31,13 @@ urlpatterns = [
         name='valores-retrieve-update-api-view'
     ),
     path(
-        'creancas/',
+        'crencas/',
         CrencasListCreateAPIView.as_view(),
-        name='creancas-list-create-api-view'
+        name='crencas-list-create-api-view'
     ),
     path(
-        'creancas/<str:pk>/',
+        'crencas/<str:pk>/',
         CrencasRetrieveUpdateAPIView.as_view(),
-        name='creancas-retrieve-update-api-view'
+        name='crencas-retrieve-update-api-view'
     ),
 ]

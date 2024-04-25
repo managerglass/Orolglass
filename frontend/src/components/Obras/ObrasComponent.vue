@@ -1,20 +1,31 @@
 <template>
 
+<PreviewObrasComponent/>
 </template>
 
 <script>
+import PreviewObrasComponent from './PreviewObrasComponent.vue'
+export default {
+    name: 'ObrasComponent',
+    components: {
+        PreviewObrasComponent
+    },
+    data() {
+        return {
+            images: [],
+        }
+    },
 
-    export default {
-        name: 'ObrasComponent',
+    created() {
+        this.getImagesObras();
+    },
 
-        data() {
-            return {
-                
-            }
+    methods: {
+        getImagesObras() {
+            this.images = this.$store.state.imagensObras
         }
     }
+}
 </script>
 
-<style>
-
-</style>
+<style></style>

@@ -22,7 +22,7 @@ class ProjetoFilterBackend(filters.BaseFilterBackend):
 class ProjetoListCreateAPIView(generics.ListCreateAPIView):
     queryset = Projeto.objects.all()
     serializer_class = ProjetoSerializer
-    filter_backend = [ProjetoFilterBackend]
+    filter_backends = [ProjetoFilterBackend]
 
 
 class ProjetoRetrieveUpdateAPIView(generics.RetrieveUpdateAPIView):
