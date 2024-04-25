@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'backend.evento',
     'backend.projeto',
     'backend.sobre',
+    'backend.endereco'
 ]
 
 MIDDLEWARE = [
