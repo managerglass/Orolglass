@@ -3,11 +3,12 @@ import axios from 'axios'
 
 export default createStore({
   state: {
-    BASE_URL: 'http://192.168.18.88:8000/api/v1/',
+    BASE_URL: 'http://192.168.18.106:8000/api/v1/',
     imagensDestques: [],
     imagensSobre: [],
     imagensObras: [],
     imagensEventos: [],
+    destaques: []
   },
   getters: {
   },
@@ -29,6 +30,16 @@ export default createStore({
         return response.data
       } catch(err) {
         console.error(err);
+      }
+    },
+
+    async getAllDestaques({ commit }) {
+      try{
+        const response = await axios.get(`${this.state.BASE_URL}destaques/`)
+        console.log(response.data)
+        return response.data
+      }catch(err){
+        console.error(err)
       }
     }
   },

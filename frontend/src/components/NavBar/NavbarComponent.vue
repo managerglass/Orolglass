@@ -23,7 +23,7 @@
                 </button>
             </div>
         </div>
-        <div class="frame2-botoes">
+        <div class="frame2-botoes" >
             <router-link v-for="link in links" :key="link.name" :to="link.path">{{ link.name }}</router-link>
         </div>
     </div>
@@ -57,7 +57,7 @@ export default {
 
 <style scoped lang="scss">
 .header {
-    @apply w-full px-6 md:px-24 divide-y-2 fixed top-0
+    @apply w-full px-6 md:px-24 divide-y-2 fixed top-0 z-50 text-white
 }
 
 .frame1 {

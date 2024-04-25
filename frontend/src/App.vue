@@ -22,7 +22,8 @@ export default {
   },
 
   created() {
-    this.getImagesall();
+    this.getImagesall()
+    this.getAllDestaques()
   },
 
   methods: {
@@ -32,8 +33,11 @@ export default {
       this.$store.state.imagensSobre = response.filter(image => image.tipo.tipo === "SOBRE")
       this.$store.state.imagensObras = response.filter(image => image.tipo.tipo === "PROJETO")
       this.$store.state.imagensEventos = response.filter(image => image.tipo.tipo === "EVENTO")
-      console.log(response);
-      console.log(this.$store.state.imagensDestques);
+    },
+
+    async getAllDestaques() {
+      const response = await this.$store.dispatch('getAllDestaques')
+      this.$store.state.destaques = response
     }
   }
 
