@@ -3,11 +3,11 @@
         <transition v-for="(image, index) in images" :key="index" name="slide">
             <div 
                 v-if="imagemAtual == index" 
-                class="carrossel bg-fixed bg-cover" 
+                class="carrossel bg-cover" 
                 :style="{ backgroundImage: 'url(' + image.imagem.arquivo + ')'}"
             >
                 <div class="h-[80vh] md:h-[100vh] bg-black opacity-40"></div>
-                <div class="absolute top-72 left-3 z-50 text-white">
+                <div class="fixed left-3 top-[50%] z-50 text-white">
                     <h1 class="text-5xl ">{{ image.titulo }}</h1>
                     <p class="text-2xl">{{ image.descricao }}</p>
                 </div>

@@ -3,16 +3,17 @@
     <div class="container-section">
         <h1 class="title-section">Algumas <span>Obras</span></h1>
 
-        <div
-            class="overflow-x-hidden flex gap-24">
+        <div class="overflow-x-hidden flex gap-24">
             <div v-for="(projeto, index) in projects" :key="projeto.id">
-                <div class="w-full h-full bg-cover" :style="{background: `url(${projeto.arquivo})`}">
+                <div class="w-full h-full bg-cover" :style="{ background: `url(${projeto.arquivo})` }">
 
                 </div>
                 <p>{{ projeto.titulo }}</p>
             </div>
-            
+
         </div>
+
+        
     </div>
 
 </template>
@@ -42,6 +43,4 @@ export default {
 
 </script>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>
