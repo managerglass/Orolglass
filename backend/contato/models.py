@@ -30,7 +30,7 @@ class Contato(HerancaPadrao):
     )
 
     class Meta:
-        ordering = ('titulo', )
+        ordering = ('tipo', )
         verbose_name = 'Contato'
         verbose_name_plural = 'Contatos'
     
