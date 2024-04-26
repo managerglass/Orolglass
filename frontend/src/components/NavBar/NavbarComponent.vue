@@ -2,7 +2,7 @@
     <div class="header" :style="blurEffect">
         <div class="frame1">
             <div class="logo">
-                <img class="w-40" src="../../assets/logo.svg" alt="Logo" />
+                <img class="w-24" src="../../assets/logo.png" alt="Logo" />
             </div>
             <div class="frame1-dados">
                 <button class="flex" @click.prevent="openLink('https://api.whatsapp.com/send?phone=55032999362017')">
@@ -90,14 +90,14 @@ export default {
 }
 
 .frame1 {
-    @apply flex w-full justify-between py-8
+    @apply flex w-full justify-between items-center py-3
 }
 
 .frame1-dados {
     @apply flex gap-8
 }
 .frame2 {
-    @apply py-4
+    @apply py-3
 }
 .frame2-botoes {
     @apply flex w-full justify-around py-5 md:text-xl
