@@ -49,7 +49,7 @@ export default {
 
 <style lang="scss">
 .container-section {
-  @apply bg-transparent md:px-24 py-12 md:py-24
+  @apply bg-transparent md:px-24 py-12 md:pt-24
 }
 
 .title-section {

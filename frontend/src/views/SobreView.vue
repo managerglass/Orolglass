@@ -1,20 +1,17 @@
 <template>
   <SobreComponent :details_sobre="sobre" :sobre_valores="sobreValores" :sobre_crencas="sobreCrencas"/>  
 
-  <ServicosComponent />
 </template>
 
 <script>
 import axios from 'axios'
 import SobreComponent from '../components/Sobre/SobreComponent.vue'
-import ServicosComponent from '@/components/Servicos/ServicosComponent.vue'
 
 export default {
 
   name: 'SobreView',
   components: {
     SobreComponent,
-    ServicosComponent
   },
   data() {
     return {
@@ -24,7 +21,7 @@ export default {
     }
   },
 
-  created() {
+  mounted() {
     this.getAbout();
     this.getValues();
     this.getCrencas();
@@ -33,8 +30,9 @@ export default {
   methods: {
     async getAbout() {
       try {
-        const response = await axios.get(`${this.$store.state.BASE_URL}sobre`)
-        this.sobre = response.data
+        const response = await axios.get(`${this.$store.state.BASE_URL}sobre/`)
+        console.log(response.data);
+        this.sobre = response.data[0]
       } catch(err) {
         console.error(err);
       }

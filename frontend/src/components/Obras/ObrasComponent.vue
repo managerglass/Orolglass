@@ -1,14 +1,11 @@
 <template>
 
-<PreviewObrasComponent/>
 </template>
 
 <script>
-import PreviewObrasComponent from './PreviewObrasComponent.vue'
 export default {
     name: 'ObrasComponent',
     components: {
-        PreviewObrasComponent
     },
     data() {
         return {
