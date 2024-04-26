@@ -1,5 +1,5 @@
 <template>
-    <div class="header">
+    <div class="header" :style="{ backdropFilter: blurEffect }">
         <div class="frame1">
             <div class="logo">
                 <img class="w-40" src="../../assets/logo.svg" alt="Logo" />
@@ -42,7 +42,8 @@ export default {
                 { name: 'Obras', path: '/obras' },
                 { name: 'Eventos', path: '/eventos' },
                 { name: 'Contatos', path: '/contatos' }
-            ]
+            ],
+            scrollY: 0
         }
     },
 
@@ -50,7 +51,30 @@ export default {
         openLink(link) {
             window.open(link, '_blank')
         }
-    }
+    },
+
+    computed: {
+        blurEffect() {
+            return this.scrollY > 0 ? 'blur(2px)' : 'none'
+        }
+    },
+
+      mounted() {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
+
+  methods: {
+    handleScroll() {
+      this.scrollY = window.scrollY; // Update scroll position
+    },
+    openLink(link) {
+      window.open(link, '_blank');
+    },
+  },
 }
 
 </script>
