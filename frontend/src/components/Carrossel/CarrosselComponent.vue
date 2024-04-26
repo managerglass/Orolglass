@@ -3,7 +3,7 @@
     <transition v-for="(image, index) in images" :key="index" name="slide">
       <div
         v-if="imagemAtual == index"
-        class="carrossel bg-cover"
+        class="carrossel"
         :style="{ backgroundImage: 'url(' + image.imagem.arquivo + ')' }"
       >
         <div class="h-[90vh] md:h-[100vh] bg-black opacity-40"></div>
@@ -53,7 +53,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped lang="scss">
 .carrossel {
   @apply bg-cover absolute left-0 right-0 top-0 bottom-0  h-[90vh] md:h-[100vh];
 }

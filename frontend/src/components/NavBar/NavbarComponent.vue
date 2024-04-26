@@ -1,5 +1,5 @@
 <template>
-    <div class="header" :style="{ backdropFilter: blurEffect }">
+    <div class="header" :style="blurEffect">
         <div class="frame1">
             <div class="logo">
                 <img class="w-40" src="../../assets/logo.svg" alt="Logo" />
@@ -9,7 +9,7 @@
                     <div>
                         <i class="fa-solid fa-phone text-2xl px-2"></i>
                     </div>
-                    <div class="hidden md:block">
+                    <div class="exibicao-text">
                         <p>(32) 99936 2017</p>
                     </div>
                 </button>
@@ -17,7 +17,7 @@
                     <div>
                         <i class="fa-solid fa-location-dot text-2xl px-2"></i>
                     </div>
-                    <div class="hidden md:block">
+                    <div class="exibicao-text">
                         <p>Av. Dante Bruno, 335 - Dornelas/Muriaé-MG</p>
                     </div>
                 </button>
@@ -55,8 +55,13 @@ export default {
 
     computed: {
         blurEffect() {
-            return this.scrollY > 0 ? 'blur(2px)' : 'none'
-        }
+            return this.scrollY > 0 ?{
+                    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+                    backdropFilter: 'blur(3px)'
+            } : {
+                    backdropFilter: 'none',
+                }
+            }
     },
 
       mounted() {
@@ -69,7 +74,7 @@ export default {
 
   methods: {
     handleScroll() {
-      this.scrollY = window.scrollY; // Update scroll position
+      this.scrollY = window.scrollY; 
     },
     openLink(link) {
       window.open(link, '_blank');
@@ -96,5 +101,8 @@ export default {
 }
 .frame2-botoes {
     @apply flex w-full justify-around py-5 md:text-xl
+}
+.exibicao-text {
+    @apply hidden lg:block 
 }
 </style>
