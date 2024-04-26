@@ -36,10 +36,19 @@ export default createStore({
     async getAllDestaques({ commit }) {
       try{
         const response = await axios.get(`${this.state.BASE_URL}destaques/`)
-        console.log(response.data)
         return response.data
       }catch(err){
         console.error(err)
+      }
+    },
+
+    async getAllProjetos({ commit }) {
+      try {
+        const response = await axios.get(`${this.state.BASE_URL}projeto`)
+        console.log(response.data)
+        return response.data
+      } catch (err) {
+        console.error(err)    
       }
     }
   },
