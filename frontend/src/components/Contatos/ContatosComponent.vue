@@ -1,6 +1,8 @@
 <template>
 
-{{ contato.titulo }}
+    <div class="flex gap-3">
+        <strong class="text-laranja_logo">{{ contato.titulo }}:</strong><span class="text-cor_texto">{{ contato.contato }}</span>
+    </div>
 
 </template>
 
