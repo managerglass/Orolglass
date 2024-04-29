@@ -22,7 +22,7 @@
             <button @click.prevent="activeModal" class="w-full bg-cor_fundo text-white font-bold py-2 ">Adicionar
                 avaliação</button>
         </div>
-        <NovaAvaliacao v-if="isOpen == true" @fechar="activeModal"/>
+        <NovaAvaliacao v-if="isOpen == true" @fechar="activeModal" @atualizar="getAvaliacoes"/>
     </div>
 
 

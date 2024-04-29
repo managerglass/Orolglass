@@ -37,21 +37,20 @@
                     </select>
                     <label class="absolute left-0 top-2 transition-all duration-300 pointer-events-none"
                         :class="{ 'text-azul_logo text-xs': rede_social, '-top-2.5': rede_social }">
-                        Número para contato
+                        Onde nos conheceu?
                     </label>
                 </div>
 
                 <div class="relative w-full">
                     <textarea
-                        class="py-2 outline-none border-2 focus:border-laranja_logo relative z-10 bg-transparent w-full"
-                        placeholder=" " rows="5" v-model="relato"></textarea>
-                    <label class="absolute left-0 top-2 transition-all duration-300 pointer-events-none"
-                        :class="{ 'text-azul_logo text-xs': relato, '-top-2.5': relato }">
-                        Número para contato
-                    </label>
+                        class="py-2 px-2 outline-none border-2 focus:border-laranja_logo relative z-10 bg-transparent w-full"
+                        placeholder="Avaliação" rows="5" maxlength="200"
+                         v-model="relato"></textarea>
                 </div>
 
-
+                <div >
+                    <button @click.prevent="novaAvaliacao()" class="bg-cor_fundo w-full text-center text-white font-bold py-2">Enivar Avaliação</button>
+                </div>
             </div>
         </div>
     </div>
@@ -60,6 +59,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 
 export default {
     name: 'NovaAvaliacao',
@@ -68,12 +68,29 @@ export default {
         return {
             nome: '',
             numero: '',
-            rede_social: ''
+            rede_social: '',
+            relato: ''
 
         }
     },
 
     methods: {
+        async novaAvaliacao() {
+            try {
+                const data = {
+                    nome: this.nome,
+                    rede_social: this.rede_social,
+                    relato: this.relato,
+                    contato: this.numero
+                }
+                const res = await axios.post(`${this.$store.state.BASE_URL}avaliacoes/`, data)
+                this.$emit('fechar')
+                this.$emit('atualizar')
+
+            }catch(err) {
+                console.error(err);
+            }
+        }
     }
 }
 
