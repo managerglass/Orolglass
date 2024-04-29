@@ -6,7 +6,7 @@
       </h1>
     </div>
     <div class="container-carrossel-projetos">
-      <div class="w-full overflow-x-scroll h-96 flex gap-6 px-6 py-8">
+      <div class="w-full overflow-x-scroll h-96 flex gap-4 px-6 py-8">
         <div
           v-for="projeto in projetos"
           :key="projeto.id"
@@ -14,17 +14,7 @@
           @mouseleave="onMouseLeave(projeto)"
         >
           <div
-            v-if="isHovering(projeto)"
-            class="w-72 h-60"
-            :style="{
-              background: `url(${projeto.imagem[1].arquivo})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }"
-          ></div>
-          <div
-            v-else
-            class="w-72 h-60"
+            class="w-72 h-60 transition transform hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none ..."
             :style="{
               background: `url(${projeto.imagem[0].arquivo})`,
               backgroundSize: 'cover',
@@ -42,35 +32,29 @@
 </template>
 
 <script>
+import CarrosselSample from '../Carrossel/CarrosselSample.vue'
+
 export default {
+
   name: "ObrasComponent",
 
-  components: {},
+  components: {
+    CarrosselSample
+  },
 
   data() {
     return {
       images: [],
       projetos: [],
-      projetoAtual: "",
-      items: [
-        { id: 1, name: "Item 1" },
-        { id: 2, name: "Item 2" },
-        { id: 3, name: "Item 3" },
-      ],
       hoveringItem: null,
     };
   },
 
   mounted() {
-    this.getImagesObras();
     this.getAllProjetos();
   },
 
   methods: {
-    getImagesObras() {
-      this.images = this.$store.state.imagensObras;
-    },
-
     async getAllProjetos() {
       this.projetos = await this.$store.dispatch("getAllProjetos");
     },
