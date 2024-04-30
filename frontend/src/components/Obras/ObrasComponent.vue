@@ -25,10 +25,16 @@
             :key="projeto.id"
             @mouseenter="onMouseEnter(projeto)"
             @mouseleave="onMouseLeave(projeto)"
-            @click.prevent="activeModal"
+            class="bg-slate-50 h-[39vh] md:h-[47vh] p-5"
+            @click.prevent="
+              () => {
+                this.imagensProjeto = projeto.imagem;
+                this.activeModal();
+              }
+            "
           >
             <div
-              class="w-72 h-60 transition transform hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none ..."
+              class="mb-2 w-72 h-60 transition transform hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none ..."
               :style="{
                 background: `url(${projeto.imagem[0].arquivo})`,
                 backgroundSize: 'cover',
@@ -38,12 +44,24 @@
             <modal-visualizar-imagens
               v-if="isOpen == true"
               @fechar="activeModal"
-              :imagens="projeto.imagem"
+              :imagens="this.imagensProjeto"
             />
-            <p class="text-black">{{ projeto.titulo }}</p>
+            <p class="text-xl text-laranja_logo font-bold">
+              {{ projeto.titulo }}
+            </p>
+            <p
+              class="text-cor_texto overflow-hidden text-ellipsis whitespace-nowrap max-w-72"
+            >
+              {{ projeto.descricao }}
+            </p>
           </div>
         </div>
       </div>
+    </div>
+    <div class="w-full">
+      <h1 class="text-azul_logo text-2xl font-bold md:text-4xl w-64 md:w-96">
+        GALERIA
+      </h1>
     </div>
   </div>
 </template>
@@ -62,8 +80,8 @@ export default {
 
   data() {
     return {
-      images: [],
       projetos: [],
+      imagensProjeto: [],
       hoveringItem: null,
       isOpen: false,
     };

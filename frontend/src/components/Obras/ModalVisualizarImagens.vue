@@ -1,8 +1,6 @@
 <template>
-  <div id="controls-carousel" class="absolute right-0 left-0 bottom-0 top-0 z-50 w-full bg-black/40" data-carousel="static">
-    <!-- Carousel wrapper -->
+  <div id="controls-carousel" class="fixed right-0 left-0 bottom-0 top-0 z-50 w-full bg-black/40" data-carousel="static">
     <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-      <!-- Item 1 -->
       <div class="" data-carousel-item>
         <img
           :src="imagens[this.imagemAtual].arquivo"
@@ -21,7 +19,7 @@
         class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
       >
         <svg
-          class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
+          class="w-4 h-4 text-white rtl:rotate-180"
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -48,7 +46,7 @@
         class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
       >
         <svg
-          class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
+          class="w-4 h-4 text-white  rtl:rotate-180"
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
