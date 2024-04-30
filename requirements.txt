@@ -28,7 +28,6 @@ django-stdimage==6.0.1
 django-storages==1.13.1
 django-svg-image-form-field==1.0.1
 django-templated-mail==1.1.1
-django-tenants==3.4.4
 django-widget-tweaks==1.4.12
 djangorestframework==3.15.1
 djangorestframework-simplejwt==5.2.2
