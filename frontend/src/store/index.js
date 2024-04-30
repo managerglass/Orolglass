@@ -18,7 +18,7 @@ export default createStore({
     async getImages({ commit }) {
       try {
         const response = await axios.get(`${this.state.BASE_URL}imagem?tipo=DESTAQUE`)
-        return response.data
+        return response.data.results
       } catch (err) {
         console.error(err)
       }
@@ -27,7 +27,7 @@ export default createStore({
     async getImagesAll({commit}) {
       try {
         const response = await axios.get(`${this.state.BASE_URL}imagem/`)
-        return response.data
+        return response.data.results
       } catch(err) {
         console.error(err);
       }
@@ -36,7 +36,8 @@ export default createStore({
     async getAllDestaques({ commit }) {
       try{
         const response = await axios.get(`${this.state.BASE_URL}destaques/`)
-        return response.data
+        console.log(response.data.results)
+        return response.data.results
       }catch(err){
         console.error(err)
       }
@@ -45,12 +46,21 @@ export default createStore({
     async getAllProjetos({ commit }) {
       try {
         const response = await axios.get(`${this.state.BASE_URL}projeto`)
-        console.log(response.data)
-        return response.data
+        return response.data.results
       } catch (err) {
         console.error(err)    
       }
+    },
+
+    async getImagesFromProjetos({ commit }) {
+      try {
+        const response = await axios.get(`${this.state.BASE_URL}imagem?tipo=PROJETO`)
+        return response.data
+      } catch (err) {
+        console.error(err)
+      }
     }
+    
   },
   modules: {
   }
