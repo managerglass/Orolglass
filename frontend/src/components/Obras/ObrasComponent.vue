@@ -19,7 +19,7 @@
         </h1>
       </div>
       <div class="container-carrossel-projetos">
-        <div class="w-full overflow-x-scroll h-96 flex gap-4 px-6 py-8">
+        <div class="w-full overflow-x-scroll h-full flex gap-4 px-6 py-8">
           <div
             v-for="projeto in projetos"
             :key="projeto.id"
@@ -58,10 +58,30 @@
         </div>
       </div>
     </div>
-    <div class="w-full">
-      <h1 class="text-azul_logo text-2xl font-bold md:text-4xl w-64 md:w-96">
+    <div class="w-full flex justify-center text-center mt-12">
+      <h1
+        class="text-azul_logo tracking-widest text-2xl font-bold md:text-4xl w-64 md:w-96"
+      >
         GALERIA
       </h1>
+    </div>
+    <div>
+      <div
+        v-for="(imagem, index) in todasImagens"
+        :key="index"
+        class="mt-5 mb-5"
+      >
+        <img
+          :src="imagem.arquivo"
+          alt="imagem projeto"
+          class="w-80 h-60 md:w-[90vw] md:h-[100vh] mx-auto"
+        />
+      </div>
+      <div class="flex justify-center">
+        <button v-if="!this.finalPagina" class="text-center font-bold bg-cor_fundo text-white py-2 w-80 mb-6" @click.prevent="setProximasImagens">
+          Carregar mais...
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -69,6 +89,7 @@
 <script>
 import CarrosselSample from "../Carrossel/CarrosselSample.vue";
 import ModalVisualizarImagens from "./ModalVisualizarImagens.vue";
+import axios from "axios";
 
 export default {
   name: "ObrasComponent",
@@ -82,18 +103,30 @@ export default {
     return {
       projetos: [],
       imagensProjeto: [],
+      todasImagens: [],
       hoveringItem: null,
       isOpen: false,
+      totalImagens: "",
+      proximaUrl: "",
+      finalPagina: false,
     };
   },
 
   mounted() {
     this.getAllProjetos();
+    this.setAllImagens();
   },
 
   methods: {
     async getAllProjetos() {
       this.projetos = await this.$store.dispatch("getAllProjetos");
+    },
+
+    async setAllImagens() {
+      const obetoImagens = await this.$store.dispatch("getImagesFromProjetos");
+      this.todasImagens = obetoImagens.results;
+      this.proximaUrl = obetoImagens.next;
+      this.totalImagens = obetoImagens.count;
     },
 
     onMouseEnter(item) {
@@ -110,6 +143,20 @@ export default {
 
     activeModal() {
       this.isOpen = !this.isOpen;
+    },
+
+    async setProximasImagens() {
+      try {
+        const response = await axios.get(`${this.proximaUrl}`);
+        if (this.todasImagens.length != response.data.count - 1) {
+          this.proximaUrl = response.data.next;
+          this.todasImagens.push(...response.data.results);
+        } else {
+          this.finalPagina = true;
+        }
+      } catch (err) {
+        console.error(err);
+      }
     },
   },
 };

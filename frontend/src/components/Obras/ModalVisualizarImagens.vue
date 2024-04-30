@@ -1,10 +1,10 @@
 <template>
   <div id="controls-carousel" class="fixed right-0 left-0 bottom-0 top-0 z-50 w-full bg-black/40" data-carousel="static">
     <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-      <div class="" data-carousel-item>
+      <div class="h-50" data-carousel-item>
         <img
           :src="imagens[this.imagemAtual].arquivo"
-          class=" fixed block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+          class=" fixed md:h-[95vh] -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
           alt="..."
         />
       </div>
