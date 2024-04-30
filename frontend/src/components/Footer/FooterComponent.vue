@@ -5,7 +5,7 @@
                 <div>
                     <img class="w-32" src="../../assets/logo.svg" alt="Logo do site"/>
                 </div>
-                <p>Testindo para nao sei o que ainda mas irei saber</p>
+                <p>Somos uma empresa de relacionamento com o cliente, que por acado comercializamos vidros e fabricamos esquadrias de alto padrão.</p>
                 <div class="icones">
                     <button @click.prevent="openLink('https://api.whatsapp.com/send?phone=55032999362017')">
                         <i class="fa-brands fa-whatsapp"></i>
@@ -19,23 +19,23 @@
                 </div>
             </div>
             <div class="coluna2">
-                <h3>Teste 1</h3>
+                <h3 class="text-xl font-bold">Institucional</h3>
                 <ul>
-                    <li>Teste 1</li>
-                    <li>Teste 2</li>
-                    <li>Teste 3</li>
-                    <li>Teste 4</li>
-                    <li>Teste 5</li>
+                    <li>Home</li>
+                    <li>Empresa</li>
+                    <li>Obras</li>
+                    <li>Eventos</li>
+                    <li>Contatos</li>
                 </ul>
             </div>
             <div class="coluna3">
-                <h3>Teste 2</h3>
+                <h3>Links Rápidos</h3>
                 <ul>
-                    <li>Teste 1</li>
-                    <li>Teste 2</li>
-                    <li>Teste 3</li>
-                    <li>Teste 4</li>
-                    <li>Teste 5</li>
+                    <li>Maps Fábrica</li>
+                    <li>Comercial</li>
+                    <li>Vendas</li>
+                    <li>Portifólio de Produtos</li>
+                    <li>Obras Finalizadas</li>
                 </ul>
             </div>
             <div class="coluna4">
@@ -79,7 +79,7 @@ export default {
 
 /* css container infos footer */                                                              
 .footer {
-    @apply flex justify-around bg-cor_fundo py-16 flex-col md:flex-row gap-12 md:gap-0 px-6 md:px-0                                                           
+    @apply flex justify-around bg-cor_fundo py-16 flex-col md:flex-row gap-12 md:gap-12 px-6 md:px-24                                                         
 }
 
 .icones {
@@ -87,17 +87,17 @@ export default {
 }
 
 .coluna1 {
-    @apply flex flex-col gap-4 text-white font-semibold 
+    @apply flex flex-col gap-4 text-white font-semibold w-full
 }
 
 .coluna2 {
-    @apply flex flex-col gap-4 text-white
+    @apply flex flex-col gap-4 text-white w-full
 }
 .coluna3 {
-    @apply flex flex-col gap-4 text-white
+    @apply flex flex-col gap-4 text-white w-full
 }
 .coluna4 {
-    @apply flex flex-col gap-4 text-white
+    @apply flex flex-col gap-4 text-white w-full
 }
 
 

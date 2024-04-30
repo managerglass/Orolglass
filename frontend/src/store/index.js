@@ -3,7 +3,7 @@ import axios from 'axios'
 
 export default createStore({
   state: {
-    BASE_URL: 'http://192.168.18.106:8000/api/v1/',
+    BASE_URL: 'http://192.168.18.88:8000/api/v1/',
     imagensDestques: [],
     imagensSobre: [],
     imagensObras: [],
