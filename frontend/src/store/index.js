@@ -3,7 +3,7 @@ import axios from 'axios'
 
 export default createStore({
   state: {
-    BASE_URL: 'http://192.168.18.88:8000/api/v1/',
+    BASE_URL: 'http://192.168.18.106:8000/api/v1/',
     imagensDestques: [],
     imagensSobre: [],
     imagensObras: [],
@@ -36,7 +36,6 @@ export default createStore({
     async getAllDestaques({ commit }) {
       try{
         const response = await axios.get(`${this.state.BASE_URL}destaques/`)
-        console.log(response.data.results)
         return response.data.results
       }catch(err){
         console.error(err)

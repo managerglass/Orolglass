@@ -34,7 +34,7 @@ export default {
         async getSobreSinopse() {
             try {
                 const response = await axios.get(`${this.$store.state.BASE_URL}sobre/`)
-                this.sinopse = response.data[0]
+                this.sinopse = response.data.results[0]
                 this.imagem = this.sinopse.imagens[0].arquivo
             } catch (err) {
                 console.error(err);

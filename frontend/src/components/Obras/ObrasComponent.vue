@@ -4,7 +4,7 @@
       class="bg-cover absolute left-0 right-0 top-0 -z-10 bottom-0 h-[30vh] md:h-[30vh]"
       :style="{
         backgroundImage:
-          'url(http://192.168.18.88:8000/media/imagens/3_8qdtQcf_ocLULKX.jpg)',
+          'url(http://192.168.18.106:8000/media/imagens/3_8qdtQcf_ocLULKX.jpg)',
       }"
     ></div>
     <div
@@ -26,26 +26,16 @@
             @mouseenter="onMouseEnter(projeto)"
             @mouseleave="onMouseLeave(projeto)"
             class="bg-slate-50 h-[39vh] md:h-[47vh] p-5"
-            @click.prevent="
-              () => {
-                this.imagensProjeto = projeto.imagem;
-                this.activeModal();
-              }
-            "
+            @click.prevent="activeModal1(projeto.imagem)"
           >
             <div
-              class="mb-2 w-72 h-60 transition transform hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none ..."
+              class="mb-2 w-72 h-60 md: h-30 transition transform hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none ..."
               :style="{
                 background: `url(${projeto.imagem[0].arquivo})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
               }"
             ></div>
-            <modal-visualizar-imagens
-              v-if="isOpen == true"
-              @fechar="activeModal"
-              :imagens="this.imagensProjeto"
-            />
             <p class="text-xl text-laranja_logo font-bold">
               {{ projeto.titulo }}
             </p>
@@ -56,32 +46,53 @@
             </p>
           </div>
         </div>
+        <modal-projeto
+          :imagens="projetoImagem"
+          :isModal="isOpen1"
+          @fechar="activeModal1"
+        />
       </div>
     </div>
     <div class="w-full flex justify-center text-center mt-12">
       <h1
-        class="text-azul_logo tracking-widest text-2xl font-bold md:text-4xl w-64 md:w-96"
+        class="text-azul_logo tracking-widest text-2xl font-bold md:text-4xl w-64 md:w-96 mb-3 md:mb-6"
       >
         GALERIA
       </h1>
     </div>
-    <div>
+    <div class="flex flex-wrap justify-center gap-5">
       <div
         v-for="(imagem, index) in todasImagens"
-        :key="index"
-        class="mt-5 mb-5"
+        :key="imagem.id"
+        class="mt-1 mb-1"
       >
         <img
           :src="imagem.arquivo"
           alt="imagem projeto"
-          class="w-80 h-60 md:w-[90vw] md:h-[100vh] mx-auto"
+          class="w-80 h-60 md:w-[30vw] md:h-[40vh]"
+          @click.prevent="
+            () => {
+              this.activeModal2(index), console.log(imagem);
+            }
+          "
+        />
+        <modal-visualizar-imagens
+          v-if="isOpen2 == true && index === indexAtual"
+          @fechar="activeModal2"
+          :imagens="imagem"
+          @passarImagem="passarImagem"
+          @voltarImagem="voltarImagem"
         />
       </div>
-      <div class="flex justify-center">
-        <button v-if="!this.finalPagina" class="text-center font-bold bg-cor_fundo text-white py-2 w-80 mb-6" @click.prevent="setProximasImagens">
-          Carregar mais...
-        </button>
-      </div>
+    </div>
+    <div class="flex justify-center">
+      <button
+        v-if="!this.finalPagina"
+        class="text-center font-bold bg-cor_fundo text-white py-2 w-52 mb-6 md:w-[13vw]"
+        @click.prevent="setProximasImagens"
+      >
+        Carregar mais...
+      </button>
     </div>
   </div>
 </template>
@@ -89,6 +100,7 @@
 <script>
 import CarrosselSample from "../Carrossel/CarrosselSample.vue";
 import ModalVisualizarImagens from "./ModalVisualizarImagens.vue";
+import ModalProjeto from "./ModalProjeto.vue";
 import axios from "axios";
 
 export default {
@@ -97,6 +109,7 @@ export default {
   components: {
     CarrosselSample,
     ModalVisualizarImagens,
+    ModalProjeto,
   },
 
   data() {
@@ -105,10 +118,13 @@ export default {
       imagensProjeto: [],
       todasImagens: [],
       hoveringItem: null,
-      isOpen: false,
+      isOpen1: false,
+      isOpen2: false,
       totalImagens: "",
       proximaUrl: "",
       finalPagina: false,
+      indexAtual: 0,
+      projetoImagem: [],
     };
   },
 
@@ -141,8 +157,14 @@ export default {
       return this.hoveringItem === item;
     },
 
-    activeModal() {
-      this.isOpen = !this.isOpen;
+    activeModal1(imagens) {
+      this.projetoImagem = imagens;
+      this.isOpen1 = !this.isOpen1;
+    },
+
+    activeModal2(index) {
+      this.indexAtual = index;
+      this.isOpen2 = !this.isOpen2;
     },
 
     async setProximasImagens() {
@@ -157,6 +179,20 @@ export default {
       } catch (err) {
         console.error(err);
       }
+    },
+
+    passarImagem() {
+      this.indexAtual < this.todasImagens.length - 1
+        ? this.indexAtual++
+        : (this.indexAtual = this.indexAtual = 0);
+      console.log(this.indexAtual);
+    },
+
+    voltarImagem() {
+      this.indexAtual > 0
+        ? this.indexAtual--
+        : (this.indexAtual = this.todasImagens.length - 1);
+      console.log(this.indexAtual);
     },
   },
 };

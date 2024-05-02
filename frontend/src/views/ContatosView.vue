@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="bg-cover absolute left-0 right-0 top-0 -z-10 bottom-0 h-[30vh] md:h-[30vh]"
-            :style="{ backgroundImage: 'url(http://192.168.18.88:8000/media/imagens/3_8qdtQcf_ocLULKX.jpg)' }">
+            :style="{ backgroundImage: 'url(http://192.168.18.106:8000/media/imagens/3_8qdtQcf_ocLULKX.jpg)' }">
         </div>
         <div class="bg-cover bg-black/20 absolute left-0 right-0 top-0 -z-10 bottom-0 h-[30vh] md:h-[30vh]">
         </div>
@@ -97,7 +97,7 @@ export default {
         async getContatos() {
             try {
                 const response = await axios.get(`${this.$store.state.BASE_URL}contatos/`)
-                this.contatos = response.data
+                this.contatos = response.data.results
                 console.log(this.contatos);
             } catch (err) {
                 console.error(err);

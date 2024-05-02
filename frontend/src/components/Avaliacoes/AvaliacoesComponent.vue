@@ -57,8 +57,7 @@ export default {
         async getAvaliacoes() {
             try {
                 const response = await axios.get(`${this.$store.state.BASE_URL}avaliacoes/`)
-                console.log(response.data);
-                this.avaliacoes = response.data
+                this.avaliacoes = response.data.results
 
             } catch (err) {
                 console.error(err);

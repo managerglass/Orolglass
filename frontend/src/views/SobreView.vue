@@ -31,8 +31,7 @@ export default {
     async getAbout() {
       try {
         const response = await axios.get(`${this.$store.state.BASE_URL}sobre/`)
-        console.log(response.data);
-        this.sobre = response.data[0]
+        this.sobre = response.data.results[0]
       } catch(err) {
         console.error(err);
       }
@@ -40,7 +39,7 @@ export default {
     async getValues() {
       try {
         const response = await axios.get(`${this.$store.state.BASE_URL}valores`)
-        this.sobreValores = response.data
+        this.sobreValores = response.data.results
       } catch(err) {
         console.error(err);
       }
@@ -48,7 +47,7 @@ export default {
     async getCrencas() {
       try {
         const response = await axios.get(`${this.$store.state.BASE_URL}crencas`)
-        this.sobreCrencas = response.data
+        this.sobreCrencas = response.data.results
       } catch(err) {
         console.error(err);
       }
