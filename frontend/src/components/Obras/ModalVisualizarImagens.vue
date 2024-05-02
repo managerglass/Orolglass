@@ -3,6 +3,7 @@
     id="controls-carousel"
     class="fixed right-0 left-0 bottom-0 top-0 z-50 w-full bg-black/50"
     data-carousel="static"
+    @click.stop="fechar"
   >
     <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
       <div class="h-50" data-carousel-item>
@@ -15,19 +16,19 @@
     </div>
     <button
       type="button"
-      class="absolute bottom-72 end-5 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-      @click.stop="fechar"
+      class="absolute top-0 end-10 z-30 md:flex items-center justify-center h-56 px-4 cursor-pointer group focus:outline-none hidden"
+      
     >
       <span
-        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/60 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
       >
-        <i class="fa-solid fa-xmark"></i>
+        <i class="fa-solid fa-xmark text-white"></i>
         <span class="sr-only">Previous</span>
       </span>
     </button>
     <button
       type="button"
-      class="absolute top-0 start-28 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+      class="absolute top-[37vh] md:start-28 z-30 flex items-center justify-center h-56 px-4 cursor-pointer group focus:outline-none"
       data-carousel-prev
       @click.stop="voltarImagem"
     >
@@ -54,7 +55,7 @@
     </button>
     <button
       type="button"
-      class="absolute top-0 end-28 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+      class="absolute top-[37vh] end-0 md:end-28 z-30 flex items-center justify-center h-56 px-4 cursor-pointer group focus:outline-none"
       data-carousel-next
       @click.stop="passarImagem"
     >
@@ -89,11 +90,6 @@ export default {
   props: {
     imagens: {
       type: Object,
-      required: true,
-    },
-
-    imagemIndex: {
-      type: Number,
       required: true,
     },
   },

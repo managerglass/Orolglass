@@ -70,11 +70,7 @@
           :src="imagem.arquivo"
           alt="imagem projeto"
           class="w-80 h-60 md:w-[30vw] md:h-[40vh]"
-          @click.prevent="
-            () => {
-              this.activeModal2(index), console.log(imagem);
-            }
-          "
+          @click.prevent="this.activeModal2(index)"
         />
         <modal-visualizar-imagens
           v-if="isOpen2 == true && index === indexAtual"
@@ -185,14 +181,12 @@ export default {
       this.indexAtual < this.todasImagens.length - 1
         ? this.indexAtual++
         : (this.indexAtual = this.indexAtual = 0);
-      console.log(this.indexAtual);
     },
 
     voltarImagem() {
       this.indexAtual > 0
         ? this.indexAtual--
         : (this.indexAtual = this.todasImagens.length - 1);
-      console.log(this.indexAtual);
     },
   },
 };
