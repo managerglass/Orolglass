@@ -7,6 +7,7 @@ class ImagemFilterBackend(filters.BaseFilterBackend):
     def filter_queryset(self, request, queryset, view):
         titulo = request.query_params.get('titulo', None)
         tipo = request.query_params.get('tipo', None)
+        nome_tipo = request.query_params.get('nome-tipo', None)
 
         filters = {}
 
@@ -14,6 +15,8 @@ class ImagemFilterBackend(filters.BaseFilterBackend):
             filters['titulo'] = titulo
         if tipo:
             filters['tipo__tipo__icontains'] = tipo
+        if nome_tipo:
+            filters['tipo__nome__icontains'] = nome_tipo
 
         return queryset.filter(**filters)
     

@@ -4,12 +4,10 @@
       class="bg-cover absolute left-0 right-0 top-0 -z-10 bottom-0 h-[30vh] md:h-[30vh]"
       :style="{
         backgroundImage:
-          'url(http://192.168.18.106:8000/media/imagens/3_8qdtQcf_ocLULKX.jpg)',
+          'url(http://orolglass.com.br:9000/media/imagens/8.jpg)',
       }"
     ></div>
-    <div
-      class="h-[30vh]"
-    ></div>
+    <div class="h-[30vh] bg-cover bg-black/40"></div>
     <div>
       <div class="container-titulo">
         <h1
@@ -19,7 +17,9 @@
         </h1>
       </div>
       <div class="container-carrossel-projetos">
-        <div class="w-full overflow-x-auto h-[42vh] md:h-[50vh] flex gap-4 px-6">
+        <div
+          class="w-full overflow-x-auto h-[42vh] md:h-[50vh] flex gap-4 px-6"
+        >
           <div
             v-for="projeto in projetos"
             :key="projeto.id"
@@ -59,6 +59,9 @@
       >
         GALERIA
       </h1>
+    </div>
+    <div v-for="categoria in categoriasProjetos" :key="categoria.id" class="flex justify-center">
+      <button @click.prevent="setAllImagens(categoria.nome)">{{ categoria.nome }}</button>
     </div>
     <div class="flex flex-wrap justify-center gap-5">
       <div
@@ -121,12 +124,15 @@ export default {
       finalPagina: false,
       indexAtual: 0,
       projetoImagem: [],
+      nomeTipo: "",
+      categoriasProjetos: [],
     };
   },
 
   mounted() {
     this.getAllProjetos();
     this.setAllImagens();
+    this.getCategoriasProjetos();
   },
 
   methods: {
@@ -134,11 +140,32 @@ export default {
       this.projetos = await this.$store.dispatch("getAllProjetos");
     },
 
-    async setAllImagens() {
-      const obetoImagens = await this.$store.dispatch("getImagesFromProjetos");
-      this.todasImagens = obetoImagens.results;
-      this.proximaUrl = obetoImagens.next;
-      this.totalImagens = obetoImagens.count;
+    async getCategoriasProjetos() {
+      try {
+        const response = await axios.get(
+          `${this.$store.state.BASE_URL}categoria/?tipo=PROJETO`
+        );
+        this.categoriasProjetos = response.data.results
+      } catch (err) {
+        console.error(err.message);
+      }
+    },
+
+    async setAllImagens(nomeTipo) {
+      try {
+        this.nomeTipo = nomeTipo 
+        console.log(this.nomeTipo)
+        const response = await axios.get(
+          `${this.$store.state.BASE_URL}imagem/?tipo=PROJETO&nome-tipo=${nomeTipo}`
+        );
+        const objetoImagens = response.data;
+        this.todasImagens = []
+        this.todasImagens = objetoImagens.results;
+        this.proximaUrl = objetoImagens.next;
+        this.totalImagens = objetoImagens.count;
+      } catch (err) {
+        console.error(err.message);
+      }
     },
 
     onMouseEnter(item) {

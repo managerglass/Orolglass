@@ -2,9 +2,9 @@
   <div>
     <div class="bg-cover absolute left-0 right-0 top-0 -z-10 bottom-0 h-[30vh] md:h-[30vh]" :style="{
       backgroundImage:
-        'url(http://192.168.18.106:8000/media/imagens/3_8qdtQcf_ocLULKX.jpg)',
+        'url(http://orolglass.com.br:9000/media/imagens/8.jpg)',
     }"></div>
-    <div class="h-[30vh]"></div>
+    <div class="bg-cover bg-black/40 h-[30vh]"></div>
     <div class="container-sobre">
       <h1 class="bg-white text-center">
         SOBRE <span class="text-laranja_logo">OROLGLASS</span>
