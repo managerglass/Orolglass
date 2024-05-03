@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-^+yvmord3k)rtisw6027d6h+r-=i0(es3n9b8s1ozer^jcnv2d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['orolglass.com.br', 'www.orolglass.com.br']
+ALLOWED_HOSTS = ['orolglass.com.br', 'www.orolglass.com.br', 'localhost']
 
 
 # Application definition
@@ -64,6 +64,8 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8000",
+    "http://localhost:8080",
     "http://192.168.18.88:8080",
     "http://192.168.18.88:8000",
     "http://192.168.18.106:8000",
