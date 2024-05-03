@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-^+yvmord3k)rtisw6027d6h+r-=i0(es3n9b8s1ozer^jcnv2d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['orolglass.com.br']
 
 
 # Application definition
@@ -72,6 +72,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://192.168.18.106:8080",
     "http://85.31.235.216:9000",
     "http://orolglass.com.br:9000",
+    "http://orolglass.com.br:8080"
 ]
 
 CORS_ALLOW_METHODS = (
