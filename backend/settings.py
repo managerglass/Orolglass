@@ -27,15 +27,15 @@ SECRET_KEY = 'django-insecure-^+yvmord3k)rtisw6027d6h+r-=i0(es3n9b8s1ozer^jcnv2d
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "http://localhost:8080",
-    "http://127.0.0.1:8000",
-    "http://192.168.18.88:8080",
-    "http://192.168.18.88:8000",
-    "http://192.168.18.106:8000",
-    "http://192.168.18.106:8080",
-    "http://85.31.235.216:9000",
-    "http://orolglass.com.br:9000",
-    "http://orolglass.com.br:8080"
+    "http://localhost",
+    "http://127.0.0.1",
+    "http://192.168.18.88",
+    "http://192.168.18.88",
+    "http://192.168.18.106",
+    "http://192.168.18.106",
+    "http://85.31.235.216",
+    "http://orolglass.com.br",
+    "http://orolglass.com.br"
 ]
 
 
