@@ -4,8 +4,8 @@
       backgroundImage:
         'url(http://192.168.18.106:8000/media/imagens/3_8qdtQcf_ocLULKX.jpg)',
     }"></div>
-    <div class="bg-cover bg-black/20 absolute left-0 right-0 top-0 -z-10 bottom-0 h-[30vh] md:h-[30vh]"></div>
-    <div class="container-sobre mt-9">
+    <div class="h-[30vh]"></div>
+    <div class="container-sobre">
       <h1 class="bg-white text-center">
         SOBRE <span class="text-laranja_logo">OROLGLASS</span>
       </h1>
@@ -70,7 +70,7 @@
           </div>
         </div>
       </div>
-      <div class="flex flex-col gap-10 p-4 w-full">
+      <div class="flex flex-col gap-10 p-4 md:w-[50vw] mx-auto">
         <h1 class="text-2xl text-azul_logo text-center font-bold">Enviar <span class="text-laranja_logo">Mensagem</span></h1>
         <form class="flex flex-col gap-8">
           <div class="relative w-full">
@@ -186,11 +186,11 @@ export default {
 
 <style lang="scss">
 .container-sobre {
-  @apply px-6 py-44;
+  @apply px-6 py-10;
 }
 
 .container-sobre h1 {
-  @apply text-4xl text-azul_logo font-bold py-3;
+  @apply md:text-4xl text-2xl text-azul_logo font-bold
 }
 
 .container-main-sobre {

@@ -8,7 +8,7 @@
       }"
     ></div>
     <div
-      class="bg-cover bg-black/20 absolute left-0 right-0 top-0 -z-10 bottom-0 h-[30vh] md:h-[30vh]"
+      class="h-[30vh]"
     ></div>
     <div>
       <div class="container-titulo">
@@ -19,7 +19,7 @@
         </h1>
       </div>
       <div class="container-carrossel-projetos">
-        <div class="w-full overflow-x-scroll h-full flex gap-4 px-6 py-8">
+        <div class="w-full overflow-x-auto h-[42vh] md:h-[50vh] flex gap-4 px-6">
           <div
             v-for="projeto in projetos"
             :key="projeto.id"
@@ -53,7 +53,7 @@
         />
       </div>
     </div>
-    <div class="w-full flex justify-center text-center mt-12">
+    <div class="w-full flex justify-center text-center mt-5">
       <h1
         class="text-azul_logo tracking-widest text-2xl font-bold md:text-4xl w-64 md:w-96 mb-3 md:mb-6"
       >
@@ -194,7 +194,7 @@ export default {
 
 <style scoped lan="scss">
 .container-titulo {
-  @apply w-full flex justify-center font-bold mt-56;
+  @apply w-full flex justify-center font-bold pt-10;
 }
 .container-carrossel-projetos {
   @apply w-full text-white flex justify-center;

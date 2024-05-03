@@ -18,7 +18,7 @@
             </div>
         </div>
         <!-- BOTÃO ADICIONAR AVALIAÇÃO -->
-        <div class="w-full px-4 py-2">
+        <div class="w-80 px-4 py-2 mx-auto">
             <button @click.prevent="activeModal" class="w-full bg-cor_fundo text-white font-bold py-2 ">Adicionar
                 avaliação</button>
         </div>
