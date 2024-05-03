@@ -29,7 +29,7 @@
                 </ul>
             </div>
             <div class="coluna3">
-                <h3>Links Rápidos</h3>
+                <h3 class="text-xl font-bold">Links Rápidos</h3>
                 <ul>
                     <li>Maps Fábrica</li>
                     <li>Comercial</li>
@@ -39,9 +39,12 @@
                 </ul>
             </div>
             <div class="coluna4">
-                <h3>Testando</h3>
-                <p>Usando texto de teste</p>
-                <button>Testaiada</button>
+                <h3 class="text-xl font-bold">Entrar em contato</h3>
+                <p>Fale Diretamente com nossa equipe de vendas no whatsapp abaixo</p>
+                <button class="bg-white text-cor_fundo font-bold py-2 text-xl" @click.prevent="openLink('https://api.whatsapp.com/send?phone=55032999362017')">
+                    <i class="fa-brands fa-whatsapp mr-3"></i>
+                    Entrar em Contato
+                </button>
             </div>
         </div>
         <div class="direitos-reservadors">

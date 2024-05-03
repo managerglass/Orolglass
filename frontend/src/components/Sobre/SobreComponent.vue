@@ -71,30 +71,37 @@
         </div>
       </div>
       <div class="flex flex-col gap-10 p-4 md:w-[50vw] mx-auto">
-        <h1 class="text-2xl text-azul_logo text-center font-bold">Enviar <span class="text-laranja_logo">Mensagem</span></h1>
+        <h1 class="text-2xl text-azul_logo text-center font-bold">Enviar <span class="text-laranja_logo">Mensagem</span>
+        </h1>
         <form class="flex flex-col gap-8">
           <div class="relative w-full">
-            <input class="py-2 outline-none border-b-2 focus:border-laranja_logo relative z-10 bg-transparent w-full"
-              type="text" placeholder=" " v-model="nome" />
-            <label class="absolute left-0 top-2 transition-all duration-300 pointer-events-none"
-              :class="{ 'text-azul_logo text-xs': nome, '-top-3': nome }">
+            <input id="nome"
+              class="py-2 outline-none border-b-2 focus:border-laranja_logo relative z-10 bg-transparent w-full"
+              type="text" placeholder=" " v-model="nome" @focus="isFocused = true" @blur="isFocused = false" />
+            <label class="absolute left-0 transition-all duration-300"
+              :class="{ 'text-azul_logo text-xs': isFocused || nome }"
+              :style="{ top: isFocused || nome ? '-10px' : '2px' }">
               Nome Completo
             </label>
           </div>
 
 
           <div class="relative w-full">
-            <input class="py-2 outline-none border-b-2 focus:border-laranja_logo relative z-10 bg-transparent w-full"
-              type="email" placeholder=" " v-model="email" />
-            <label class="absolute left-0 top-2 transition-all duration-300 pointer-events-none"
-              :class="{ 'text-azul_logo text-xs': email, '-top-3': email }">
+            <input id="nome"
+              class="py-2 outline-none border-b-2 focus:border-laranja_logo relative z-10 bg-transparent w-full"
+              type="text" placeholder=" " v-model="email" @focus="isFocusedEmail = true"
+              @blur="isFocusedEmail = false" />
+            <label class="absolute left-0 transition-all duration-300"
+              :class="{ 'text-azul_logo text-xs': isFocusedEmail || email }"
+              :style="{ top: isFocusedEmail || email ? '-10px' : '2px' }">
               E-mail
             </label>
           </div>
 
           <div class="relative w-full">
-            <select class="py-2 outline-none border-b-2 focus:border-laranja_logo relative z-10 bg-transparent w-full"
-              v-model="numero">
+            <select id="numero"
+              class="py-2 outline-none border-b-2 focus:border-laranja_logo relative z-10 bg-transparent w-full"
+              @focus="isFocusedNumero = true" @blur="isFocusedNumero = false" v-model="numero">
               <option value="" disabled selected hidden></option>
               <!-- Adicione opções conforme necessário -->
               <option value="55032999362017">Comercial</option>
@@ -104,7 +111,8 @@
               <option value="55032984923475">Manutenção</option>
             </select>
             <label class="absolute left-0 top-2 transition-all duration-300 pointer-events-none"
-              :class="{ 'text-azul_logo text-xs': numero, '-top-3': numero }">
+              :class="{ 'text-azul_logo text-xs': isFocusedNumero || numero }"
+              :style="{ top: isFocusedNumero || numero ? '-10px' : '2px' }">
               Falar com
             </label>
           </div>
@@ -139,6 +147,9 @@ export default {
   data() {
     return {
       enderecos: [],
+      isFocused: false,
+      isFocusedEmail: false,
+      isFocusedNumero: false,
       email: '',
       nome: '',
       assunto: '',
