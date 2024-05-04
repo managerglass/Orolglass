@@ -60,8 +60,14 @@
         GALERIA
       </h1>
     </div>
-    <div v-for="categoria in categoriasProjetos" :key="categoria.id" class="flex justify-center">
-      <button @click.prevent="setAllImagens(categoria.nome)">{{ categoria.nome }}</button>
+    <div class="flex justify-evenly w-full">
+      <button
+        v-for="categoria in categoriasProjetos"
+        :key="categoria.id"
+        @click.prevent="setAllImagens(categoria.nome)"
+      >
+        {{ categoria.nome }}
+      </button>
     </div>
     <div class="flex flex-wrap justify-center gap-5">
       <div
@@ -131,7 +137,7 @@ export default {
 
   mounted() {
     this.getAllProjetos();
-    this.setAllImagens();
+    this.setAllImagens("");
     this.getCategoriasProjetos();
   },
 
@@ -145,7 +151,7 @@ export default {
         const response = await axios.get(
           `${this.$store.state.BASE_URL}categoria/?tipo=PROJETO`
         );
-        this.categoriasProjetos = response.data.results
+        this.categoriasProjetos = response.data.results;
       } catch (err) {
         console.error(err.message);
       }
@@ -153,14 +159,14 @@ export default {
 
     async setAllImagens(nomeTipo) {
       try {
-        this.nomeTipo = nomeTipo 
-        console.log(this.nomeTipo)
+        this.nomeTipo = nomeTipo;
         const response = await axios.get(
           `${this.$store.state.BASE_URL}imagem/?tipo=PROJETO&nome-tipo=${nomeTipo}`
         );
         const objetoImagens = response.data;
-        this.todasImagens = []
+        this.todasImagens = [];
         this.todasImagens = objetoImagens.results;
+        this.proximaUrl = "";
         this.proximaUrl = objetoImagens.next;
         this.totalImagens = objetoImagens.count;
       } catch (err) {
@@ -221,7 +227,7 @@ export default {
 
 <style scoped lan="scss">
 .container-titulo {
-  @apply w-full flex justify-center font-bold pt-10;
+  @apply w-full flex justify-center font-bold pt-10 p-6;
 }
 .container-carrossel-projetos {
   @apply w-full text-white flex justify-center;
