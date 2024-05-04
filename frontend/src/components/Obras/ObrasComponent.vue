@@ -60,7 +60,8 @@
         GALERIA
       </h1>
     </div>
-    <div class="flex justify-evenly w-full">
+    <div class="flex justify-evenly w-full mb-5">
+      <button @click.prevent="setAllImagens('')" class="focus:underline focus:text-laranja_logo focus:font-bold">Todos</button>
       <button
         v-for="categoria in categoriasProjetos"
         :key="categoria.id"
