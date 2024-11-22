@@ -161,8 +161,8 @@ module.exports = {
       rose: colors.rose,
       cor_fundo: '#04132A',
       cor_texto: '#777777',
-      azul_logo: '#001C72',
-      laranja_logo: '#FF3C00',
+      azul_logo: '#132F3D',
+      laranja_logo: '#C3986A',
     }),
     columns: {
       auto: 'auto',

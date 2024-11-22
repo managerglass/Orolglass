@@ -3,9 +3,10 @@
         <div class="footer">
             <div class="coluna1">
                 <div>
-                    <img class="w-32" src="../../assets/logo.svg" alt="Logo do site"/>
+                    <img class="w-32" src="../../assets/logo.png" alt="Logo do site" />
                 </div>
-                <p>Somos uma empresa de relacionamento com o cliente, que por acado comercializamos vidros e fabricamos esquadrias de alto padrão.</p>
+                <p>Somos uma empresa de relacionamento com o cliente, que por acaso comercializamos vidros e fabricamos
+                    esquadrias de alto padrão.</p>
                 <div class="icones">
                     <button @click.prevent="openLink('https://api.whatsapp.com/send?phone=55032999362017')">
                         <i class="fa-brands fa-whatsapp"></i>
@@ -21,11 +22,11 @@
             <div class="coluna2">
                 <h3 class="text-xl font-bold">Institucional</h3>
                 <ul>
-                    <li>Home</li>
-                    <li>Empresa</li>
-                    <li>Obras</li>
-                    <li>Eventos</li>
-                    <li>Contatos</li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/sobre">Sobre a Empresa</a></li>
+                    <li><a href="/obras">Obras</a></li>
+                    <li><a href="/eventos">Eventos</a></li>
+                    <li><a href="/contatos">Contatos</a></li>
                 </ul>
             </div>
             <div class="coluna3">
@@ -40,8 +41,9 @@
             </div>
             <div class="coluna4">
                 <h3 class="text-xl font-bold">Entrar em contato</h3>
-                <p>Fale Diretamente com nossa equipe de vendas no whatsapp abaixo</p>
-                <button class="bg-white text-cor_fundo font-bold py-2 text-xl" @click.prevent="openLink('https://api.whatsapp.com/send?phone=55032999362017')">
+                <p>Fale diretamente com nossa equipe de vendas no número abaixo</p>
+                <button class="bg-white text-cor_fundo font-bold py-2 text-xl"
+                    @click.prevent="openLink('https://api.whatsapp.com/send?phone=55032999362017')">
                     <i class="fa-brands fa-whatsapp mr-3"></i>
                     Entrar em Contato
                 </button>
@@ -50,8 +52,8 @@
         <div class="direitos-reservadors">
             <p>&copy; 2024 Desenvolvido por Orolglass</p>
         </div>
-    </div>                                                                                              
-    
+    </div>
+
 </template>
 
 <script>
@@ -78,11 +80,11 @@ export default {
 /* css container footer pai */
 .container-footer {
     @apply flex bg-cor_fundo w-full
-}                                       
+}
 
-/* css container infos footer */                                                              
+/* css container infos footer */
 .footer {
-    @apply flex justify-around bg-cor_fundo py-16 flex-col md:flex-row gap-12 md:gap-12 px-6 md:px-24                                                         
+    @apply flex justify-around bg-cor_fundo py-16 flex-col md:flex-row gap-12 md:gap-12 px-6 md:px-24
 }
 
 .icones {
@@ -96,17 +98,18 @@ export default {
 .coluna2 {
     @apply flex flex-col gap-4 text-white w-full
 }
+
 .coluna3 {
     @apply flex flex-col gap-4 text-white w-full
 }
+
 .coluna4 {
     @apply flex flex-col gap-4 text-white w-full
 }
 
 
-/* css dos direitos reservados */     
+/* css dos direitos reservados */
 .direitos-reservadors {
     @apply flex w-full justify-center items-center py-6 font-semibold text-sm md:text-base
 }
-
 </style>
