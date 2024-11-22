@@ -73,7 +73,9 @@ CORS_ALLOWED_ORIGINS = [
     "http://192.168.18.106:8080",
     "http://85.31.235.216:9000",
     "http://orolglass.com.br",
-    "http://www.orolglass.com.br"
+    "http://www.orolglass.com.br",
+    "https://www.orolglass.com.br",
+    "https://orolglass.com.br"
 ]
 
 CORS_ALLOW_METHODS = (

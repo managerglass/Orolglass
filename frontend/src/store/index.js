@@ -3,7 +3,7 @@ import axios from 'axios'
 
 export default createStore({
   state: {
-    BASE_URL: 'http://orolglass.com.br:9000/api/v1/',
+    BASE_URL: 'https://orolglass.com.br/api/v1/',
     imagensDestques: [],
     imagensSobre: [],
     imagensObras: [],
