@@ -15,27 +15,40 @@ export default {
     NavbarComponent,
     FooterComponent
   },
-  data() {
-    return {
-
-    }
-  },
 
   mounted() {
-    this.getImagesall()
+    this.getImagesall();
   },
 
   methods: {
     async getImagesall() {
-      const response = await this.$store.dispatch('getImagesAll');
-      this.$store.state.imagensDestques = response.filter(image => image.tipo.tipo === "DESTAQUE");
-      this.$store.state.imagensSobre = response.filter(image => image.tipo.tipo === "SOBRE")
-      this.$store.state.imagensObras = response.filter(image => image.tipo.tipo === "PROJETO")
-      this.$store.state.imagensEventos = response.filter(image => image.tipo.tipo === "EVENTO")
+      try {
+        const response = await this.$store.dispatch('getImagesAll');
+
+        const imagens = Array.isArray(response) ? response : [];
+
+        this.$store.state.imagensDestques = imagens.filter(
+          image => image.tipo?.tipo === "DESTAQUE"
+        );
+
+        this.$store.state.imagensSobre = imagens.filter(
+          image => image.tipo?.tipo === "SOBRE"
+        );
+
+        this.$store.state.imagensObras = imagens.filter(
+          image => image.tipo?.tipo === "PROJETO"
+        );
+
+        this.$store.state.imagensEventos = imagens.filter(
+          image => image.tipo?.tipo === "EVENTO"
+        );
+
+      } catch (error) {
+        console.error("Erro ao carregar imagens:", error);
+      }
     }
   }
-
-
 }
 </script>
+
 <style lang="scss"></style>

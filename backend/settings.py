@@ -26,8 +26,13 @@ SECRET_KEY = 'django-insecure-^+yvmord3k)rtisw6027d6h+r-=i0(es3n9b8s1ozer^jcnv2d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['orolglass.com.br', 'www.orolglass.com.br', 'localhost']
-
+#ALLOWED_HOSTS = ['orolglass.com.br', 'www.orolglass.com.br', 'localhost']
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'orolglass.com.br',
+    'www.orolglass.com.br',
+]
 
 # Application definition
 

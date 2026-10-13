@@ -1,4 +1,22 @@
-venv
+# Ambiente virtual Python
+venv/
+.venv/
+
+# Configurações locais
 .env
-__pycache__
-staticsfiles
+.env.*
+!.env-sample
+!.env.example
+
+# Arquivos temporários Python
+__pycache__/
+*.pyc
+
+# Dependências do frontend
+node_modules/
+
+# Arquivos estáticos gerados pelo Django
+staticfiles/
+
+# Arquivos do editor
+.vscode/
